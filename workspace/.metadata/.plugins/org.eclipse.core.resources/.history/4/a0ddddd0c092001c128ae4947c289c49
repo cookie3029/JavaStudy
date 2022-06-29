@@ -1,0 +1,26 @@
+package day11;
+
+class Point2 {
+	int x, y;
+
+	public Point2(int x, int y) {
+		this.x = x; this.y = y;
+	}
+}
+
+public class Api02 {
+	public static void main(String[] args) {
+		
+		Point2 a = new Point2(1, 3);
+		Point2 b = new Point2(1, 3);
+		Point2 c = a;
+		
+		System.out.println(a == c);
+		System.out.println(a.equals(b));
+		
+		
+		
+		
+		
+	}
+}

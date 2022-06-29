@@ -1,0 +1,20 @@
+package day13;
+
+import java.io.FileInputStream;
+
+public class FileInEx02 {
+	public static void main(String[] args) {
+
+		FileInputStream fis = null;
+		
+		try {
+			fis = new FileInputStream("c:\\test\\fos.txt");
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+}

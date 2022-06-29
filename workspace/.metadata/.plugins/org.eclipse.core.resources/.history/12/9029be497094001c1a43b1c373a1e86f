@@ -1,0 +1,31 @@
+package day13;
+
+import javax.swing.JOptionPane;
+
+class ThreadTime extends Thread {
+	@Override
+	public void run() {
+		System.out.println("10초 안에 값을 입력해야 합니다.");
+		String input = JOptionPane.showInputDialog("아무 값이나 입력하세요.");
+		System.out.println("입력하신 값은 " + input + "입니다");
+		
+	}
+}
+
+public class ThEx05 {
+	public static void main(String[] args) {
+		
+		ThreadTime th = new ThreadTime();
+		th.start();
+		
+		for(int i = 10; i > 0; i--) {
+			System.out.println(i);
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}	
+	}
+}

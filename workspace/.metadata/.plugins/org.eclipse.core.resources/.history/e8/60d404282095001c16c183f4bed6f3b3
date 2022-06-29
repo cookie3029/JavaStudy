@@ -1,0 +1,45 @@
+package day14;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+class Student {
+	private String name;
+	private int engScore;
+	private int mathScore;
+
+	public Student(String name, int engScore, int mathScore) {
+		this.name = name;
+		this.engScore = engScore;
+		this.mathScore = mathScore;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getEngScore() {
+		return engScore;
+	}
+
+	public int getMathScore() {
+		return mathScore;
+	}
+}
+
+public class FuncEx01 {
+	
+	private static List<Student> list = Arrays.asList(
+				new Student("pika", 90, 98),
+				new Student("raichu", 95, 92)
+			);
+	
+	public static void main(String[] args) {
+		
+		Arrays.asList("hello", 10);
+		
+		
+		
+	}
+}

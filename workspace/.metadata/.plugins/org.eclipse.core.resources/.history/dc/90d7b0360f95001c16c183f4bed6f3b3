@@ -1,0 +1,18 @@
+package day14;
+
+public class RamdaEx01 {
+	public static void main(String[] args) {
+		
+		MyFunctionalInterface my;
+		
+		my = () -> {
+			String str = "method 호출";
+			System.out.println(str);
+		};
+		
+		my = () -> { System.out.println("호출2"); };
+		
+		my.method();
+		
+	}
+}

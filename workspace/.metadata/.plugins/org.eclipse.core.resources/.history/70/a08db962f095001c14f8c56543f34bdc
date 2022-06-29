@@ -1,0 +1,16 @@
+package day15;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StreamEx12 {
+	public static void main(String[] args) {
+		
+		// 요소가 없을 때 예외 발생 예시
+		List<Integer> list = new ArrayList<Integer>();
+		
+		list.stream()
+		.mapToInt(Integer::intValue)
+		
+	}
+}

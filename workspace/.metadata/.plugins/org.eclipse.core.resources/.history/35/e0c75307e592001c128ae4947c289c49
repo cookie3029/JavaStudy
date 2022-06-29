@@ -1,0 +1,12 @@
+package day11;
+
+import java.util.Calendar;
+
+public class Api06 {
+	public static void main(String[] args) {
+		
+		Calendar now = Calendar.getInstance();			// new Calendar();
+		System.out.println(now);
+		
+	}
+}

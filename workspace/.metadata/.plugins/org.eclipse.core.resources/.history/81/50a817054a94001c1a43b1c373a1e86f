@@ -1,0 +1,42 @@
+package day13;
+
+import java.io.File;
+import java.util.Date;
+
+public class FileEx01 {
+	public static void main(String[] args) {
+		
+		// 경로명 적을 때 역슬래쉬 두 개 (이스케이프 문자로 인식하지 않게)
+		// "Users/java/day01/test.txt"
+		
+		File f = new File("C:\\Windows\\system.ini");
+		// File f = new File("c:\\Windows\\system.ini");
+		
+		long size = f.length(); // 파일 크기
+		System.out.println(size);
+		
+		String path = f.getPath(); // 파일 경로
+		System.out.println(path);
+		
+		String fileName = f.getName(); // 파일명
+		System.out.println(fileName);
+		
+		String parentPath = f.getParent(); // 파일의 부모 경로
+		System.out.println(parentPath);
+		
+		String absolPath = f.getAbsolutePath(); // 절대 경로
+		System.out.println(absolPath);
+		
+		if(f.isFile()) {
+			System.out.println(f.getPath() + "는 파일입니다.");
+		} else if(f.isDirectory()) {
+			System.out.println(f.getPath() + "는 폴더입니다.");
+		}
+		
+		System.out.println(f.isHidden());
+		System.out.println(f.canRead());
+		System.out.println(f.canWrite());
+		System.out.println(new Date(f.lastModified()));
+
+	}
+}

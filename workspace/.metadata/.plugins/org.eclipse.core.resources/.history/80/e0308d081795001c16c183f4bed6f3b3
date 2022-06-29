@@ -1,0 +1,17 @@
+package day14;
+
+class UseLocal {
+	void func(int x) {
+		
+	}
+}
+
+public class RamdaEx03 {
+	public static void main(String[] args) {
+		
+		
+		
+		
+		
+	}
+}

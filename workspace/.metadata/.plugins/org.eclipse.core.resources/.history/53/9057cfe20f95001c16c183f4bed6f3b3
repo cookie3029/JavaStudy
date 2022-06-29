@@ -1,0 +1,33 @@
+package day14;
+
+public class RamdaEx01 {
+	public static void main(String[] args) {
+		
+		MyFunctionalInterface my;
+
+		my = (x) -> {
+			int result = x * 5;
+			System.out.println(result);
+		};
+		
+		my.method(10);
+		
+		my = (x) -> { System.out.println(x * 10); };
+		
+		/*
+			my = () -> {
+				String str = "method 호출";
+				System.out.println(str);
+			};
+			my.method();		
+			
+			my = () -> { System.out.println("호출2"); };
+			my.method();		
+			
+			// 중괄호 안에 명령문이 하나라 중괄호 생략 가능
+			my = () -> System.out.println("호출3");
+			my.method();
+		*/
+		
+	}
+}

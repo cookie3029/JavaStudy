@@ -1,0 +1,10 @@
+package day14;
+
+// 인터페이스 생성
+@FunctionalInterface
+public interface MyFunctionalInterface {
+
+	public void method();
+	public void otherMethod();
+	
+}

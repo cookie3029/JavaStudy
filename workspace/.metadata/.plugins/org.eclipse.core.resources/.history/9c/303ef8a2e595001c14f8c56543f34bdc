@@ -1,0 +1,23 @@
+package day15;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamEx06 {
+	public static void main(String[] args) {
+		
+		List<String> list = Arrays.asList("java8 lamda", "stream mapping");
+		
+		list.stream()
+		.flatMap(data -> Arrays.stream(data.split(" ")))
+		.
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

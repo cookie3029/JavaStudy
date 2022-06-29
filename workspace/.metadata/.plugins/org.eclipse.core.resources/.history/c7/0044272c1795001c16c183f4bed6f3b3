@@ -1,0 +1,24 @@
+package day14;
+
+class UseLocal {
+	void func(int x) {
+		int localVar = 50;
+		
+		MyFunctionalInterface2 my = () -> {
+			System.out.println("x : " + x);
+			System.out.println("localVar : " + localVar);
+		};
+		
+		my.method();
+	}
+}
+
+public class RamdaEx03 {
+	public static void main(String[] args) {
+		
+		
+		
+		
+		
+	}
+}

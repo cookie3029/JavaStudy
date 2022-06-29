@@ -1,0 +1,35 @@
+package day13;
+
+import java.io.FileInputStream;
+
+public class FileInEx01 {
+	public static void main(String[] args) {
+		
+		byte [] b = new byte[6];
+		
+		FileInputStream fin = null;
+		
+		try {
+			fin = new FileInputStream("c:\\test\\test.out");
+			
+			int i = 0;  // 배열 idx로 사용할 변수
+			int c;		// 읽은 파일 임시저장 변수
+			
+			while((c = fin.read()) != -1) {
+				b[i] = (byte)c;
+				i++;
+			}
+			
+			// 확인 출력
+			for(byte bb : b) {
+				System.out.print(bb + "   ");
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(fin != null) { try { fin.close(); } catch (Exception e) { e.printStackTrace(); } }
+		}
+		
+	}
+}

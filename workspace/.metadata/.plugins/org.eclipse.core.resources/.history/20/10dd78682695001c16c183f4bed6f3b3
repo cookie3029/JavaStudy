@@ -1,0 +1,21 @@
+package day14;
+
+import java.util.function.UnaryOperator;
+import java.util.function.BinaryOperator;
+import java.util.function.IntBinaryOperator;
+
+public class OpEx01 {
+
+	private static int[] score = { 95, 98, 97 };
+
+	// int를 두 개 받아 연산하고 int 한 개 리턴해주는 IntBinaryOperator
+	public static int maxOrMin(IntBinaryOperator operator) {
+		
+	}
+	
+	public static void main(String[] args) {
+
+		
+		
+	}
+}

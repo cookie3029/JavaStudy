@@ -1,0 +1,141 @@
+[day09]
+
+1. 다형성 polymorphism
+	여러가지 형태를 가질 수 있는 능력
+	상속관계에서 성립가능한 문법
+	참조형의 업/다운 캐스팅
+	(부모타입의 변수에 자식객체로 new한 것이 들어갈 수 있다)
+
+	1) instanceof 연산자
+		: 참조하는 변수가 가르키는 인스턴스(객체)의 실제 타입을
+		체크하는데 사용
+
+		참조변수 instanceof 클래스명 ---> true / false
+		
+		클래스명 : 나부터 조상까지 모두 true로 리턴
+			내아래 자식이나 아예 다른 클래스는 false
+
+2. 추상클래스
+	1) 개발할 때, 밑그림을 그리는 것. 설계쪽에 해당.
+	2) 키워드 : abstract
+	3) 추상메서드 : abstract 키워드를 붙여 메서드의 선언부만 있고,
+		구현부({코드작성..})는 되어있지 않은 형태
+
+		public abstract String getName();
+		public abstract void setName(String str);
+
+	4) 추상클래스 : 일반 멤버들과 함께 추상 메서드를 포함하는 클래스
+		추상메서드가 하나라도 있으면 무조건 추상 클래스.
+		클래스 앞에 abstract 붙히기.
+
+		abstract class Shape {
+			...
+			abstract void draw(); // 추상메서드
+		}
+
+	5) 추상클래스는 객체 생성 불가. 불완전한/미완성인 클래스다~
+		Shape s = new Shape(); (X)
+		Shape s; (O)
+
+	6) 상속에서 수퍼클래스로 사용된다. 부모클래스가 될 수 있음. extends
+	
+	7) 추상클래스를 물려받은 서브클래스를 완성 시키려면,
+		추상 메서드를 오버라이딩 해야한다.
+		추상 클래스를 단순히 상속만 받은 서브 클래스는
+		그 또한 추상 클래스가 된다.
+		추상 메서드를 그대로 상속받기 때문에
+		구현을 하지 않는다면 클래스 앞에 abstract 키워드를 붙혀줘야한다.
+
+		# 추상클래스 단순 상속
+		abstract class Rect extends Shape { // 추상 draw();
+			int width;
+			...
+		}
+		
+		new Rect(); (X)
+
+		# 추상클래스를 사용할 때 -> 상속받아 구현 완성
+		class Rect extends Shape {
+			int width;
+
+			...
+			
+			@Override
+			void draw(String str, int a) { // 구현코드 작성 }
+		}
+
+		new Rect(); (O)
+
+3. 인터페이스 interface : 규격
+	1) 키워드 : interface
+	interface PhoneInterface {
+		public static final 타입 변수명 = 값; // 상수
+		public abstract 리턴타입 메서드명();  // 추상메서드
+	}
+
+	2) 인터페이스 멤버는 추상메서드와 상수만으로 구성된다.
+	interface PhoneInterface {
+		public static final int BUTTONS = 20; // 상수
+		// 추상메서드
+		public abstract void sendCall();
+		public abstract void receiveCall();
+	}
+	* 인터페이스 멤버는 누구나 접근 가능하게 모두 public 접근지정자로 만듬.
+	
+	3) 모든 메서드는 public abstract이며, 생략 가능하다.
+	
+	4) 상수는 public static final이며, 생략가능하다.
+
+	interface PhoneInterface {
+		int BUTTONS = 20; // 상수
+		// 추상메서드
+		void sendCall();
+		void receiveCall();
+	}
+
+	5) 인터페이스로 객체 생성 불가능 (new ~~ 안됨)
+		메서드는 모두 구현이 전혀 안된(미완성인) 추상메서드이므로...
+
+	6) 인터페이스로 레퍼런스변수 선언은 가능.
+		PhoneInterface iPhone; (O)
+		.. new PhoneInterface(); (X)
+
+	7) 인터페이스 상속
+		인터페이스는 다른 인터페이스를 상속받을 수 있다.
+		인터페이스는 규격과 같은 것으로, 상속을 통해
+		기존 인터페이스에 새로운 규격을 추가한 
+		새로운 인터페이스를 만들 수 있다.
+		extends 키워드 사용
+
+	interface MobilePhoneInterface extends PhoneInterface {
+		void sendSMS();
+		void receiveSMS();
+	}
+	* 인터페이스는 다중 상속 허용!!
+	interface DualCameraPhoneInterface extends PhoneInterface, CameraInterface {
+		void makeVideo();
+	}
+
+	8) 인터페이스 구현 (사용하기)
+		: 인터페이스 추상메서드를 모두 구현한 클래스를 작성하는 것.
+		키워드 : implements
+
+	class IPhone implements MobilePhoneInterface {
+		// 추상메서드 모두 구현
+		public void sendCall() { .... }
+		public void receiveCall() { .... }
+		public void sendSMS() { ... }
+		public void receiveSMS() { ... }
+		// 추가적으로 인반 메서드나 변수 작성
+		public int getButtons() { ... }
+		...
+	}
+
+	9) 인터페이스의 목적
+		설계, 가이드라인
+		다형성을 실현하는 도구
+
+	10) 인터페이스는 다중 구현
+	class IPhone implements MobilePhoneInterface, CameraInterface {
+		// 두개 인터페이스로부터 물려받은 추상메서드 전부 구현해야함.
+	}

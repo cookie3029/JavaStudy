@@ -1,0 +1,28 @@
+package day07;
+
+class Person {
+	private String name;
+	private int age;
+	
+	public void setName(String name) { // setter 또는 set메서드
+		this.name = name;
+	}
+	
+	public String getName() { // getter 또는 get메서드
+		return name;
+	}
+	
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+}
+
+public class Test83 {
+	public static void main(String[] args) {
+		
+	}
+}

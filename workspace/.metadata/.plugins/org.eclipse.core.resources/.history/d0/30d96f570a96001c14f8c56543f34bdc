@@ -1,0 +1,14 @@
+package day15;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamEx16 {
+	public static void main(String[] args) {
+
+		List<Person> list = Arrays.asList(new Person("aaa", 10, Person.Gender.MALE),
+				new Person("bbb", 20, Person.Gender.FEMALE), new Person("ccc", 5, Person.Gender.MALE),
+				new Person("ddd", 10, Person.Gender.FEMALE));
+
+	}
+}

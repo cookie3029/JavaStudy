@@ -1,0 +1,19 @@
+package day13;
+
+class TimerThread extends Thread {
+	int n = 0;
+	
+	@Override
+	public void run() {
+		while(true) {
+			n++;
+			System.out.println(n);
+		}
+	}
+}
+
+public class ThEx01 {
+	public static void main(String[] args) {
+		
+	}
+}

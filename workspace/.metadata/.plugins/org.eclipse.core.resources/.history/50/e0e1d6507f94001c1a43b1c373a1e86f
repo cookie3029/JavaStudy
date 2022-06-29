@@ -1,0 +1,7 @@
+package day13;
+
+public class InetEx {
+	public static void main(String[] args) {
+		
+	}
+}

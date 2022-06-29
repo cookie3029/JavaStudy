@@ -1,0 +1,18 @@
+package day12;
+
+import java.util.HashMap;
+
+public class HashTest03 {
+	public static void main(String[] args) {
+		
+		HashMap map = new HashMap();
+		
+		map.put("java", 1234);
+		map.put("fdfd", 1234);
+		map.put("qwer", 1234);
+		map.put("rere", 1234);
+		
+		
+		
+	}
+}

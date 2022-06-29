@@ -1,0 +1,26 @@
+package day12;
+
+import java.util.Vector;
+
+public class VecTest03 {
+	public static void main(String[] args) {
+		
+		// 제너릭 타입을 생략하면 Object로 처리
+		// 모든 타입을 섞어서 저장 가능
+		Vector v = new Vector();
+
+		v.add(10);
+		v.add("hello");
+		v.add(3.14);
+		v.add(new Point(1, 2));
+		
+		System.out.println(v);
+		
+		Object o = v.get(1);
+		String str = (String)o;
+		System.out.println(str.length());
+		
+		Object o2 = v.get(3);
+		System.out.println(o2);
+	}
+}

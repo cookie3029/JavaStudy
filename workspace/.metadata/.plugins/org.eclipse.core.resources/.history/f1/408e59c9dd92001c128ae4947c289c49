@@ -1,0 +1,12 @@
+package day11;
+
+public class Api05 {
+	public static void main(String[] args) {
+		
+		Integer i = new Integer(10);
+		Character c = new Character('c');
+		Double d = new Double("3.14");
+		System.out.println(d);
+		
+	}
+}

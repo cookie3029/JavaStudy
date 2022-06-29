@@ -1,0 +1,287 @@
+[day13]
+
+0. 입출력 : java.io
+
+	io == I/O == Input/Output
+ 	input (사용자가 upload -> 자바 안으로 가져온다)
+	output (자바에서 내보내기 -> download)
+
+1. File 클래스 : java.io.File
+	: 크기, 생성, 삭제, 변경 등등 파일에 관련된 내용을 관리하는 기능.
+	입출력기능X
+
+	1) 생성
+	File(String pathname)	: pathname 파일 전체 경로명을 작성하여 객체 생성
+	File(String parent, String child) : parent 디렉토리에 child 이름으로 
+					서브 디렉토리나 파일을 작성하며 객체 생성
+
+	2) 객체 생성
+		File 변수명 = new File("전체 경로");
+		File 변수명 = new File("디렉토리 경로", "파일명");
+
+		* 경로나 파일명 작성시 확장자명까지 포함해서 작성
+
+	3) 주요 메서드
+	boolean 	mkdir() 	: 새로운 디렉토리(폴더) 생성
+	String[] 	list()		: 디렉토리 내의 파일과 서브 디렉터리 리스트(이름)를 배열로 리턴
+	File[]		listFiles() 	: 디렉토리 내의 파일과 서브 디렉토리를 File 배열로 리턴
+	String 		getPath() 	: 경로 문자열로 리턴
+	String 		getAbsolutePath : 절대 경로를 문자열로 리턴
+	String 		getParent()	: 파일이나 디렉토리의 부모 디렉토리 이름 리턴
+	String		getName()	: 파일 또는 디렉토리의 이름 리턴
+	boolean		isFile()	: 파일이면 true
+	boolean		isDirectory()	: 디렉토리면 true
+	long		length()	: 파일 크기 리턴
+	boolean		exist()		: 파일 또는 디렉토리가 존재하면 true
+	boolean		createNewFile() : 빈 파일 생성.
+	boolean		delete()	: 파일 또는 디렉토리 삭제
+	boolean		renameTo(File dest) : dest 경로명으로 파일 이름 변경
+	long		lastModified()	: 마지막으로 변경 시간 리턴
+
+	* 경로
+	절대 경로 : c 또는 d 드라이브부터 시작하는 전체 경로
+	상대 경로 : 내 현재 파일을 기준으로 말하는 경로
+			./   : 현재 폴더
+			../  : 상위 폴더
+			/    : 안에~
+
+2. Stream 스트림
+	: 연속적인 데이터의 흐름 -> 데이터가 돌아다니는 통로(선)
+	-> 데이터를 목적지로 i/o하기 위한 방법.
+
+	- 스트림은 단방향
+	- 자바 응용프로그램은 입력스트림과 출력스트림과만 연결하고,
+	  입출력장치를 제어하고 실질적인 입출력을 담당하는 것은 입출력 스트림이다.
+
+	  입력장치or파일 ----> 입력스트림 ----> 자바 응용프로그램
+	  입력장치or파일 <---- 출력스트림 <---- 자바 응용프로그램
+
+	- 스트림을 통해 흘러가는 기본 단위는 바이트나 문자이다.
+	  자바 스트림 객체는 바이트단위로 입출력하는 바이트 스트림과
+	  문자 단위로 입출력하는 문자 스트림으로 나뉜다.
+	  바이트 스트림을 다루는 클래스는 공통적으로 뒤에 Stream이 붙고
+	  문자 스트림을 다루는 클래스는 뒤에 Reader/Writer를 붙여 구분.
+
+	- FIFO -> First In First Out : 선입선출
+	- LIFO -> Last In First Out  : 후입선출
+
+	- close() : 스트림을 열었으면 사용 후 반드시 닫아줘야 누수가 안된다.
+
+3. 바이트 스트림
+	- 바이트 단위로 데이터 전송
+	- 다양한 클래스 제공으로 용도에 맞게 골라 사용
+	- 이미지, 동영상 전송 가능
+
+	InputStream		OutputStream
+	---------------------------------------------------
+	int read()		void write(int b)
+	int read(byte[] b)	void write(byte[] b)
+	
+	1) FileOutputStream
+		: 파일에 출력을 하기 위한 클래스
+		파일에 바이너리 데이터 저장.
+
+		#1. 생성자
+		FileOutputStream(File file) : 파일 객체에 출력 (기본 : 덮어쓰기)
+		FileOutputStream(File file, boolean append) : 파일 객체에 파일의 마지막부터 데이터 출력 저장시킬건지
+
+		#2. 주요 메서드
+		void write(int b)	: 출력
+		void write(byte[] b)
+		void flush() 		: 출력스트림에 남아있는 바이너리 데이터 모두 출력
+		void close()		: 출력스트림 닫고 관련된 시스템 자원 해제
+
+	2) FileInputStream
+		: 바이트 스트림으로 파일 읽는 스트림 클래스
+
+		#1. 생성자 (문서 참조)
+		
+		#2. 주요 메서드
+		int read()	: 한바이트 읽어서 int로 리턴
+		int read(byte[] b) : b의 크기만큼 바이트 읽음
+					읽는 도중 EOF를 만나면 실제 읽은 바이트 수 리턴
+		int read(byte[] b, int off, int len)
+		void close()
+		
+		EOF : End Of File (파일의 끝) -> read() 할때 EOF를 만나면 -1을 리턴한다. 
+		byte 0xFF  --> int 0x000000FF => 데이터 -1
+		int  -1    --> 0xFFFFFFFF     => EOF
+
+4. 문자 스트림
+	2바이트의 유니코드 문자를 단위로 입출력하는 스트림
+	- 문자화되지 않는 바이너리 바이트 값들을 처리 불가 -> 이미지 같은 것 처리 불가
+	
+	1) InputStreamReader
+		: 바이트 스트림을 문자 스트림으로 연결시켜주는 역할을 하는 보조 클래스
+		바이트 스트림의 데이터를 지정된 인코딩의 문자 데이터로 변환하는 작업 수행
+
+		# 인코딩
+		MS949 - MS사에서 만든 한글 인코딩 체계
+
+	2) OutputStreamWriter
+		: 파일에 텍스트데이터를 저장할 때 원하는 인코딩으로 지정하여 저장
+		인코딩 지정안하면 OS에서 사용하는 인코딩으로 데이터 저장
+		(eclipse에 지정한 인코딩)
+
+5. OS 
+	: 하나의 소프트웨어로, 소프트웨어들을 관리하는 소프트웨어
+	windows, macOS, Linux, Android, iOS
+
+	자바 -> JVM
+
+6. Thread 스레드
+
+	1) 프로세스 process
+		흔히 말하는 프로그램
+		프로그램을 수행하는데 필요한 데이터와 메모리 등 자원 + 스레드
+		싱글 프로세스 : 하나의 프로그램을 돌리기 위해 1개 프로세스가 실행되는 것
+		멀티 프로세스 : 하나의 프로그램을 돌리기 위해 여러개의 프로세스가 실행되는 것
+
+	2) 멀티 태스킹
+		태스크 task : 프로세스가 하는 일
+		멀티 태스킹 : 하나의 프로세스가 여러 일을 하는 것
+
+	3) 스레드 Thread
+		하나의 태스크를 수행하는 아이
+		프로세스 = 공장(자원 + 일꾼), 스레드 = 일꾼
+		싱글 스레드 = 자원 + 일꾼
+		멀티 스레드 = 자원 + 일꾼 + 일꾼 ...
+
+	4) 멀티태스킹과 멀티스레딩
+		멀티 태스킹을 실현하기 위한 2가지 방법
+		- 멀티 프로세싱
+		- 멀티 스레딩
+			웹 서버, 워드 
+
+	5) 자바의 멀티스레딩
+		
+7. 스레드 만들기
+	# 개발자가 할일
+	1. 스레드가 할일 코드 작성
+	2. 스레드 생성해서 JVM에게 일하도록 요청
+	
+	# 구현방법
+	1. Thread 클래스 상속
+	2. Runnable 인터페이스 구현
+
+	1) Thread 클래스 상속받아 스레드 만들기
+		
+		#1. 주요 메서드
+		void	run()		: JVM에 의해 호출 (핵심 메서드)
+					오버라이딩하여 스레드가 실행할 코드 작성
+		void 	start()		: JVM에게 스레드 실행하도록 요청
+		void 	interrupt()	: 스레드 강제 종료
+		static void	yield	: 다른 스레드에게 실행 양보
+		String 	getName()	: 스레드 이름 리턴
+		int 	getPriority()	: 스레드 우선순위값 리턴 1 ~ 10
+		void 	setPriority(int n) : 우선순위 n으로 지정
+		Thread.State getState() : 스레드의 상태값 리턴
+		static void	sleep(long millis) : millis 시간동안 스레드 일시정지
+		static Thread	currentThread() : 현재 실행 중인 스레드 객체 리턴
+		void	join() : 스레드 종료할때까지 기다림
+
+	2) Runnable 인터페이스로 스레드 만들기
+	
+		Runnable 인터페이스는 run() 메서드 한 개만 가지고 있다.
+
+	3) 스레드 상태
+		NEW			new Thread()
+		RUNNABLE		start()
+		TIMED_WATITING		sleep(1000)
+		BLOCK			i/o 작업
+		WAITING			wait(), notify()로 깨울 때까지 기다림
+		TERMINATED		종료된 것
+
+	4) 스레드 종료시키는 방법
+		#1. run() 종료
+		#2. interrupt() 호출
+	
+	5) 스레드 동기화 Synchronization
+		멀티 스레드에서 공유 자원 혹은 공유 데이터에 동시 접근할 때 문제점 발생
+		스레드 동기화 방법
+			- synchronized 로 동기화 블럭 지정
+			- wait() - notify() 메서드로 스레드 실행 순서 직접 제어
+
+		#1. 메서드 전체를 임계영역으로 지정
+			synchronized void add() {
+				....
+			}
+
+		#2. 코드 블럭을 임계영역으로 지정
+			void execute() {
+				....
+				synchronized(this) {
+					......
+				}
+				...
+			}
+
+8. Network
+	1) 네트워크 : 데이터 전송을 할 수 있는 통신망, 전자장비들의 집합
+		노드   Node : 네트워크에 연결된 장치
+		호스트 Host : 노드에게 하나 이상의 서비스를 제공해주는 노드
+
+	2) OSI7계층 : 모든 네트워크 통신에서 생기는 여러가지 충돌 문제를 완화하기 위해,
+		국제 표준 기구(ISO)에서 표준화된 네트워크 구조를 제시한 기본 모델
+
+		7 응용층
+		6 표현층
+		5 세션층
+		4 전송층
+		3 네트워크층
+		2 데이터링크층
+		1 물리층
+
+	3) 네트워크 유형
+		LAN : Local Area Network
+			나와 같은 네트워크 간의 통신 -> 스위치
+			
+		WAN : Wide Area Network
+			내부 -> 외부
+
+			          WAN (internet)
+		router ----------------------------------- router
+		  |					      |
+		switch					   switch
+		|    |					   |	|
+	        pc   pc					server  pc
+
+	4) IP(Address)
+		통신을 하는 기계의 네트워크상 주소
+		192.168.10.54
+		내 pc ip 주소 확인 : cmd > ipconfig > IPv4
+
+		https://www.naver.com : 도메인 -> DNS에 의해 숫자로 구성된 ip주소로 자동 변환
+		https:// ip : port
+
+	5) Port : 데이터를 주고 받는 통로, 여러 개의 서비스를 해줄 때
+		서로 충돌이 나지 않도록 포트를 구분해서 만들어 놓음
+		ip = 은행 지점 / port = 은행 안에 창구
+
+		포트 번호는 개발자가 임의로 선택 사용할 수 있으나,
+		기존 응용 프로그램에서 사용하는 번호나 시스템 포트번호는 피하는 것이 좋다
+		잘 알려진 포트 번호 : HTTP = 80, HTTPS = 443, FTP = 21, Telnet = 23 등
+		0 ~ 1023 사이의 번호를 가지며, 사용자 지정은 이 범위 피해서 선택하도록
+
+		내 pc에서 사용 중인 port번호 확인 : cmd > netstat -a > :뒤에 포트 번호 확인
+
+	6) Protocol : 통신/전송 규칙
+		: IP 프로토콜 위에서 동작
+		
+		#1. TCP(Transmission Control Protocol) 방식
+			연결형 서비스를 제공. 신뢰도 높음.
+			ex) download
+
+		#2. UDP(User Datagram Protocol) 방식
+			비연결형 서비스를 제공. 빠른 전송. 신뢰도 낮음
+			ex) streaming service
+
+9. java.net
+	
+	1) InetAddress
+
+10. 소켓 프로그래밍
+	소켓 = 통신을 하는 두 응용 프로그램 간의 통신 링크의 각 끝단 endpoint
+	TCP/IP 프로토콜을 따르며
+
+	1) TCP 소켓 : 클라이언트(요청자, node)와 서버(제공자, host) 간의 1:1 통신

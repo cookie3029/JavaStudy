@@ -1,0 +1,15 @@
+package day13;
+
+class TimerThread extends Thread {
+	
+	@Override
+	public void run() {
+		
+	}
+}
+
+public class ThEx01 {
+	public static void main(String[] args) {
+		
+	}
+}

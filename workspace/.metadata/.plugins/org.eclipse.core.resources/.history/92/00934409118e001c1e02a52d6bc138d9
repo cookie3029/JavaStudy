@@ -1,0 +1,31 @@
+package day07;
+
+class Book2 {
+	String title;
+	String author;
+	
+	Book2() {
+		System.out.println("생성자호출");
+	}
+	
+	Book2(String title) {
+		this.title = title;
+	}
+	
+	Book2(String title, String author) {
+		this.title = title;
+		this.author = author;
+	}
+	
+	void show() {
+		System.out.println(title + " " + author);
+	}
+}
+
+public class Test79 {
+	public static void main(String[] args) {		
+		
+		Book2 little = new Book2("어린왕자", "생텍쥐베리");
+		little.show();
+	}
+}

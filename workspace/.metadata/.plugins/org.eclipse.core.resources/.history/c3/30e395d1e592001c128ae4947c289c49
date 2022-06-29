@@ -1,0 +1,19 @@
+package day11;
+
+import java.util.Calendar;
+
+public class Api07 {
+	public static String toString(Calendar date) {
+		return date.get(Calendar.YEAR) + "년" + (date.get(Calendar.MONTH) + 1) + "월" + date.get(Calendar.DATE);
+	}
+
+	public static void main(String[] args) {	
+		
+		Calendar date1 = Calendar.getInstance();
+		Calendar date2 = Calendar.getInstance();
+		date1.set(2020, 11, 25);
+		
+		
+		
+	}
+}

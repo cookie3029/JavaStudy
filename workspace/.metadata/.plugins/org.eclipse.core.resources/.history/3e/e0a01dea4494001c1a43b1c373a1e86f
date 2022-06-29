@@ -1,0 +1,12 @@
+package day13;
+
+import java.io.File;
+
+public class FileEx01 {
+	public static void main(String[] args) {
+		
+		// 경로명 적을 때 역슬래쉬 두 개
+		File f = new File("C:\\Windows\\system.ini");
+		
+	}
+}

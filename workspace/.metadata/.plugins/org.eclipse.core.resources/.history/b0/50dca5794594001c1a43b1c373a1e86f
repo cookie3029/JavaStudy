@@ -1,0 +1,22 @@
+package day13;
+
+import java.io.File;
+
+public class FileEx01 {
+	public static void main(String[] args) {
+		
+		// 경로명 적을 때 역슬래쉬 두 개 (이스케이프 문자로 인식하지 않게)
+		// "Users/java/day01/test.txt"
+		
+		File f = new File("C:\\Windows\\system.ini");
+		
+		long size = f.length();
+		String fileName = f.getName();
+		
+		System.out.println(size);
+		System.out.println(fileName);
+		
+		System.out.println(f.getAbsolutePath());
+		
+	}
+}

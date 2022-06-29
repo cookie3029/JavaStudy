@@ -1,0 +1,24 @@
+package day13;
+
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+
+public class OutWriteEx01 {
+	public static void main(String[] args) {
+		
+		FileOutputStream fos = null;
+		OutputStreamWriter out = null;
+		
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(fos != null) try { fos.close(); } catch(Exception e) { e.printStackTrace(); }
+			if(out != null) try { out.close(); } catch(Exception e) { e.printStackTrace(); }
+		}
+		
+		
+		
+	}
+}

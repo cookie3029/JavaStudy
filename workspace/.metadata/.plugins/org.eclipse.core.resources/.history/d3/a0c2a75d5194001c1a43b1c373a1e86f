@@ -1,0 +1,18 @@
+package day13;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+public class FileOutEx01 {
+	public static void main(String[] args) {
+
+		byte[] b = { 7, 34, 6, 2, -1, 70 };
+		
+		try {
+			FileOutputStream fout = new FileOutputStream("c:\\test\\test.out");
+		} catch (Exception e) {
+			
+		}
+
+	}
+}

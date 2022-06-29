@@ -1,0 +1,17 @@
+package day15;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FemalePerson {
+	
+	private List<Person> list;	// 요소 저장할 컬렉션
+	
+	public FemalePerson() {
+		list = new ArrayList<Person>();
+	}
+	
+	public List<Person> getList() {
+		return list;
+	}
+}

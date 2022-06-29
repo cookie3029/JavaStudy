@@ -1,0 +1,13 @@
+package day11;
+
+import java.util.Calendar;
+
+public class Api09 {
+	public static void main(String[] args) {
+		
+		Calendar date = Calendar.getInstance();
+		
+		date.set(2000, 7, 31);
+		
+	}
+}

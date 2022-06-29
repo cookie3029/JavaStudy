@@ -1,0 +1,12 @@
+package day13;
+
+import javax.swing.JOptionPane;
+
+public class ThEx05 {
+	public static void main(String[] args) {
+		
+		String input = JOptionPane.showInputDialog("아무 값이나 입력하세요.");
+		System.out.println(input);
+		
+	}
+}

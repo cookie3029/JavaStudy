@@ -1,0 +1,16 @@
+package day14;
+
+class Member {
+	private String name;
+	private String id;
+	private Address addr;
+}
+
+public class ConsumAndThen {
+	public static void main(String[] args) {
+		
+		
+		
+		
+	}
+}

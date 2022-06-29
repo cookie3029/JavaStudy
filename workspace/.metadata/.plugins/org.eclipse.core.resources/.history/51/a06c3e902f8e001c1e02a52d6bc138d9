@@ -1,0 +1,26 @@
+package day07;
+
+// 캡슐화를 활용
+class Person2 {
+	private int age = 1;
+	
+	public void setAge(int age) {
+		if(age > 0 && age < 150) {			
+			this.age = age;
+		}
+	}
+	
+	public int getAge() {
+		return age;
+	}
+}
+
+public class Test84 {
+	public static void main(String[] args) {
+	
+		Person2 p = new Person2();
+		// p.age = 250;
+		p.setAge(200);
+		
+	}
+}

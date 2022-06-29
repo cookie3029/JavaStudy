@@ -1,0 +1,17 @@
+package day12;
+
+import java.util.HashMap;
+
+public class HashTest01 {
+	public static void main(String[] args) {
+		
+		// 객체 생성
+		HashMap<String, String> h = new HashMap<String, String>()
+		
+		
+		
+		
+		
+		
+	}
+}

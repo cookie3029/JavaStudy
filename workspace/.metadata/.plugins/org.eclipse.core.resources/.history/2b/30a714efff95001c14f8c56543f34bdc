@@ -1,0 +1,14 @@
+package day15;
+
+public class Person {
+
+	public enum Gender { MALE, FEMALE };
+	public enum City { Seoul, Pusan };
+	
+	private String nameString;
+	private int age;
+	private Gender gender;
+	privaet City city;
+	
+	
+}

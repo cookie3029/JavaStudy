@@ -1,0 +1,29 @@
+package day14;
+
+class UseThis {
+	
+	int outterVar = 10;
+	
+	class Inner {
+		int innerVar = 20;
+		
+		void method() {
+			MyFunctionalInterface2 my = () -> {
+				System.out.println("outter var : " + outterVar);
+				
+			};
+			
+			my.method();
+		}
+	}
+	
+	
+}
+
+public class RamdaEx02 {
+	public static void main(String[] args) {
+		
+		
+		
+	}
+}

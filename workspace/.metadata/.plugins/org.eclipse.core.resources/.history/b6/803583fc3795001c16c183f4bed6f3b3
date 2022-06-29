@@ -1,0 +1,18 @@
+import java.util.function.IntPredicate;
+
+public class PredEx02 {
+	public static void main(String[] args) {
+		
+		// 2의 배수 검사
+		IntPredicate predA = (a) -> a % 2 == 0;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

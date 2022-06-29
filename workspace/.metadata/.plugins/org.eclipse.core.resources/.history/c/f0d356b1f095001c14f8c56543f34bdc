@@ -1,0 +1,27 @@
+package day15;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.OptionalDouble;
+
+public class StreamEx12 {
+	public static void main(String[] args) {
+		
+		// 요소가 없을 때 예외 발생 예시
+		List<Integer> list = new ArrayList<Integer>();
+		
+		/*
+			double avg = list.stream()
+			.mapToInt(Integer::intValue)
+			.average()
+			.getAsDouble();
+		*/
+		
+		OptionalDouble opt = list.stream()
+		.mapToInt(Integer::intValue)
+		.average();
+		
+		System.out.println(avg);
+		
+	}
+}

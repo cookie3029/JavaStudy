@@ -1,0 +1,13 @@
+package day11;
+
+import java.util.Calendar;
+
+public class Api08 {
+	public static void main(String[] args) {
+		
+		Calendar time1 = Calendar.getInstance();
+		Calendar time2 = Calendar.getInstance();
+		
+		
+	}
+}

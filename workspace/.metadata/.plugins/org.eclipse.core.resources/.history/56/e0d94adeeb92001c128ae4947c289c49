@@ -1,0 +1,12 @@
+package day11;
+
+import java.util.Date;
+
+public class Api10 {
+	public static void main(String[] args) {
+
+		Date day = new Date();
+		System.out.println(day);
+		System.out.println(day.getMonth() + 1);
+	}
+}

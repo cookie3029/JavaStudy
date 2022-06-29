@@ -1,0 +1,15 @@
+package day14;
+
+import java.util.function.UnaryOperator;
+import java.util.function.BinaryOperator;
+
+public class OpEx01 {
+
+	private static int[] score = { 95, 98, 97 };
+
+	public static void main(String[] args) {
+
+		
+		
+	}
+}

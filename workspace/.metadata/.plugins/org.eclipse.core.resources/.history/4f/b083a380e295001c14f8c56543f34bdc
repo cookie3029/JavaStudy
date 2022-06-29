@@ -1,0 +1,15 @@
+package day15;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamEx05 {
+	public static void main(String[] args) {
+
+		List<String> names = Arrays.asList(
+				"김피카츄", "박꼬북이", 
+				"김라이츄", "최파이리", 
+				"김피카츄", "이상해씨");
+
+	}
+}

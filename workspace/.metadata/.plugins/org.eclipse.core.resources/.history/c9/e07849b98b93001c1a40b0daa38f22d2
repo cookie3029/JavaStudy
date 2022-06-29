@@ -1,0 +1,19 @@
+package day12;
+
+import java.util.Vector;
+
+public class VecTest03 {
+	public static void main(String[] args) {
+		
+		Vector<String> v = new Vector<String>();
+		v.add(0, "hello");
+		v.add(5, "hello");
+		System.out.println(v);
+		
+		
+		
+		
+		
+		
+	}
+}

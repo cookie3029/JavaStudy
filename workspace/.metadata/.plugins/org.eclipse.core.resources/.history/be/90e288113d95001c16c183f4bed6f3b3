@@ -1,0 +1,21 @@
+package day14;
+
+class Calc {
+	// 클래스 메서드
+	public static int staticMethod(int x, int y) {
+		return x + y;
+	}
+	
+	// 인스턴스 메서드
+	public int instanceMethod(int x, int y) {
+		return x + y;
+	}
+}
+
+public class RefEx01 {
+	public static void main(String[] args) {
+
+		
+		
+	}
+}
